@@ -10,11 +10,13 @@ class User < ApplicationRecord
 
 def get_profile_image(width, height)
   unless profile_image.attached?
-    file_path = Rails.root.join('fontawesome') #あとで追加
+    file_path = Rails.root.join('app/assets/images/default-image.jpg') #あとで追加
     profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+  else
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  profile_image.variant(resize_to_limit: [width, height]).processed
-end
 
+
+end
 
 end

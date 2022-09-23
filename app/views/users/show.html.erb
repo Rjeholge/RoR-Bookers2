@@ -1,13 +1,34 @@
-<h2>Books</h2>
-<table>
-  <thred>
-    <th colspan="3"></th>
-    <th>Title</th>
-    <th>Opinion</th>
-  </thred>
-  <tbody>
-    <td>profile_image</td>
-    <td><%= link_to "<%= book.title %>", book_path(@book.id) %></td>
-    <td><%= book.body %></td>
-  </tbody>
-</table>
+<div class="row">
+
+  <div class="col-md-3">
+    <%= render 'users/user', user: @user %>
+    <%= render 'books/book' %>
+  </div>
+
+  <div class="col-md-8 offset-md-1">
+
+  <h2>Books</h2>
+
+  <table class="table table-hover table-inverse">
+
+    <thred>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+        <th colspan="3"></th>
+      </tr>
+    </thred>
+
+    <tbody>
+      <tr>
+        <td></td>
+        <td><%= link_to book.title, book_path(book.id) %></td>
+        <td><%= book.body %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
